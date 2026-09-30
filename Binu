@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GETHUB BARBER | Street & Hip-Hop Culture</title>
+    <!-- Google Fonts for Street / Hip-Hop vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Teko:wght@500;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --neon-green: #00ff66;
+            --neon-pink: #ff0055;
+            --neon-yellow: #ffee00;
+            --bg-dark: #0d0d0d;
+            --card-bg: #181818;
+            --text-light: #f5f5f5;
+            --font-graffiti: 'Permanent Marker', cursive;
+            --font-head: 'Teko', sans-serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Gritty brick texture overlay */
+            background-image: 
+                radial-gradient(circle, rgba(0,0,0,0.8) 0%, rgba(13,13,13,0.95) 100%),
+                repeating-linear-gradient(45deg, #141414 0, #141414 1px, transparent 0, transparent 50%);
+            background-size: cover, 10px 10px;
+        }
+
+        /* Glitch / Graffiti Header Glow */
+        h1, h2, h3 {
+            font-family: var(--font-head);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .graffiti-text {
+            font-family: var(--font-graffiti);
+            color: var(--neon-pink);
+            text-shadow: 2px 2px 0px var(--neon-green), -2px -2px 0px #000;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--neon-green);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+            font-weight: 700;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 20px;
+            font-family: var(--font-head);
+            font-size: 1.5rem;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-pink);
+            text-shadow: 0 0 8px var(--neon-pink);
+        }
+
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            line-height: 0.9;
+            color: #fff;
+            text-shadow: 3px 3px 0 var(--neon-pink), -3px -3px 0 var(--neon-green);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+            font-weight: bold;
+            background: var(--neon-yellow);
+            color: #000;
+            padding: 5px 15px;
+            transform: rotate(-2deg);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--neon-green);
+            color: #000;
+            padding: 12px 30px;
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid #000;
+            box-shadow: 5px 5px 0px var(--neon-pink);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 8px 8px 0px var(--neon-pink);
+            background: #fff;
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 2px solid #333;
+            padding: 25px;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .card:hover {
+            border-color: var(--neon-green);
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        /* Services Menu */
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px dashed #444;
+        }
+
+        .service-name {
+            font-size: 1.8rem;
+            font-family: var(--font-head);
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            color: var(--neon-yellow);
+            font-family: var(--font-head);
+            font-weight: bold;
+        }
+
+        .dm-notice {
+            background: rgba(255, 0, 85, 0.1);
+            border: 1px solid var(--neon-pink);
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        /* Appointment Form */
+        .booking-form label {
+            display: block;
+            margin-top: 15px;
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            color: var(--neon-green);
+        }
+
+        .booking-form input, 
+        .booking-form select, 
+        .booking-form textarea {
+            width: 100%;
+            padding: 12px;
+            background: #000;
+            border: 1px solid #444;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            margin-top: 5px;
+        }
+
+        .booking-form input:focus, 
+        .booking-form select:focus {
+            outline: none;
+            border-color: var(--neon-pink);
+        }
+
+        /* Info & Socials */
+        .info-box {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-btn {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            background: #222;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-head);
+            font-size: 1.4rem;
+            border: 1px solid #444;
+            transition: 0.3s;
+        }
+
+        .social-btn.insta:hover {
+            background: #e1306c;
+            border-color: #e1306c;
+        }
+
+        .social-btn.tiktok:hover {
+            background: #00f2fe;
+            color: #000;
+            border-color: #00f2fe;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #000;
+            border-top: 1px solid #222;
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustment */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.5rem; }
+            header { flex-direction: column; gap: 10px; }
+            nav a { margin: 0 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">GETHUB BARBER</div>
+        <nav>
+            <a href="#services">SERVICES</a>
+            <a href="#booking">BOOK NOW</a>
+            <a href="#location">LOCATION</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="glitch">STREET STYLE & CUTS</h1>
+        <p>TOKYO'S HYAKUNINCHO HIP-HOP BARBER CULTURE</p>
+        <a href="#booking" class="btn" style="margin-top: 20px;">BOOK APPOINTMENT</a>
+    </section>
+
+    <!-- Main Content Container -->
+    <div class="container">
+        
+        <!-- Services Section -->
+        <section id="services" style="margin-bottom: 80px;">
+            <h2 class="section-title">MENU & <span class="graffiti-text">PRICES</span></h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="service-item">
+                        <span class="service-name">HAIR CUT</span>
+                        <span class="service-price">¥2,500</span>
+                    </div>
+                    <div class="service-item">
+                        <span class="service-name">PERM</span>
+                        <span class="service-price">¥8,000</span>
+                    </div>
+                    
+                    <div class="dm-notice">
+                        <h3 style="color: var(--neon-pink); font-size: 1.8rem;">SPECIALTY SERVICES</h3>
+                        <p style="font-size: 0.95rem; margin-top: 5px;">For <strong>Color</strong>, <strong>Dreadlocks</strong> & <strong>Designer Color</strong>, please DM us directly on Instagram or TikTok!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & Shop Info Section -->
+        <div class="grid">
+            
+            <!-- Appointment Booking Form -->
+            <section id="booking" class="card">
+                <h2 style="font-size: 2.5rem; color: var(--neon-green); margin-bottom: 10px;">BOOK APPOINTMENT</h2>
+                <form class="booking-form" id="appointmentForm">
+                    <label for="name">FULL NAME</label>
+                    <input type="text" id="name" required placeholder="Your Name">
+
+                    <label for="phone">PHONE NUMBER</label>
+                    <input type="tel" id="phone" required placeholder="090-XXXX-XXXX">
+
+                    <label for="service">SELECT SERVICE</label>
+                    <select id="service" required>
+                        <option value="Cut (¥2,500)">Hair Cut - ¥2,500</option>
+                        <option value="Perm (¥8,000)">Perm - ¥8,000</option>
+                        <option value="Cut + Perm (¥10,500)">Cut + Perm - ¥10,500</option>
+                        <option value="Special Consultation (DM Required)">Color / Dreadlocks / Designer Color (DM to Confirm)</option>
+                    </select>
+
+                    <label for="date">DATE</label>
+                    <input type="date" id="date" required>
+
+                    <label for="time">TIME (11:00 AM - 8:30 PM)</label>
+                    <input type="time" id="time" min="11:00" max="20:30" required>
+
+                    <label for="notes">SPECIAL REQUESTS / NOTES</label>
+                    <textarea id="notes" rows="3" placeholder="Fade type, specific styling, etc."></textarea>
+
+                    <button type="submit" class="btn" style="width: 100%; margin-top: 25px;">CONFIRM BOOKING</button>
+                </form>
+            </section>
+
+            <!-- Location & Contact Info -->
+            <section id="location" class="card" style="display: flex; flex-direction: column; justify-content: space-between;">
+                <div>
+                    <h2 style="font-size: 2.5rem; color: var(--neon-pink); margin-bottom: 10px;">SHOP INFO</h2>
+                    
+                    <div class="info-box">
+                        <strong style="color: var(--neon-green);">ADDRESS:</strong><br>
+                        404 2 Chome-10-9 Hyakunincho, Shinjuku City, Tokyo
+                    </div>
+
+                    <div class="info-box">
+                        <strong style="color: var(--neon-green);">PHONE:</strong><br>
+                        <a href="tel:0366742453" style="color: #fff; text-decoration: underline;">03-6674-2453</a>
+                    </div>
+
+                    <div class="info-box">
+                        <strong style="color: var(--neon-green);">OPENING HOURS:</strong><br>
+                        11:00 AM – 8:30 PM<br>
+                        <span style="color: var(--neon-pink); font-weight: bold;">CLOSED: Mondays (Holiday)</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="font-size: 1.8rem; margin-top: 20px;">CONNECT WITH US</h3>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/prachangurung?stkn=MTNwZzdhZ3ozc2xpYQ==" target="_blank" class="social-btn insta">INSTAGRAM</a>
+                        <a href="https://www.tiktok.com/@binus.hair.salon?_r=1&_t=ZS-9AAbWrIR8eT" target="_blank" class="social-btn tiktok">TIKTOK</a>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 GETHUB BARBER. ALL RIGHTS RESERVED. HYAKUNINCHO, SHINJUKU, TOKYO.</p>
+    </footer>
+
+    <!-- Interactive Script -->
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Form values
+            const name = document.getElementById('name').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+
+            // Simple Monday validation check
+            const selectedDate = new Date(date);
+            if (selectedDate.getDay() === 1) { // 1 = Monday
+                alert("We are closed on Mondays! Please choose another day.");
+                return;
+            }
+
+            alert(`Thank you ${name}!\n\nYour appointment request for ${service} on ${date} at ${time} has been received.\n\nWe will contact you shortly to confirm!`);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
